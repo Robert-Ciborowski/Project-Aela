@@ -20,7 +20,6 @@
 #include "2D/Texture/GLTextureLoader.h"
 #include "3D/Materials/GLMaterialLoader.h"
 #include "3D/Models/OBJLoader.h"
-#include "Physics/PhysicsManager.h"
 #include "3D/Skybox/GLSkyboxLoader.h"
 #include "3D/Maps/Map3DLoader.h"
 #include "Audio/WAVEClipLoader.h"
@@ -87,7 +86,6 @@ namespace Aela {
 			KeyedAnimator* getKeyedAnimator();
 			FramerateCalculator* getFramerateCalculator();
 			Map3DExporter* getMapExporter();
-			Physics* getPhysics();
 			Stopwatch* getStopwatch();
 			PythonExecuter* getPythonExecuter();
 			SimpleAudioPlayer* getSimpleAudioPlayer();
@@ -106,7 +104,6 @@ namespace Aela {
 			KeyedAnimator keyedAnimator;
 			FramerateCalculator framerateCalculator;
 			Map3DExporter mapExporter;
-			Physics physics;
 			Stopwatch stopwatch;
 			PythonExecuter pythonExecuter;
 			SimpleAudioPlayer simpleAudioPlayer;

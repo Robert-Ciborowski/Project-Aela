@@ -298,10 +298,6 @@ Map3DExporter* Aela::Engine::getMapExporter() {
 	return &mapExporter;
 }
 
-Physics* Aela::Engine::getPhysics() {
-	return &physics;
-}
-
 Stopwatch* Aela::Engine::getStopwatch() {
 	return &stopwatch;
 }

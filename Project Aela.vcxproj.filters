@@ -82,7 +82,6 @@
     <ClCompile Include="3D\Bounding Box\BoundingBox3D.cpp" />
     <ClCompile Include="Events\EventDispatcher.cpp" />
     <ClCompile Include="Events\EventListenerList.cpp" />
-    <ClCompile Include="Physics\PhysicsManager.cpp" />
     <ClCompile Include="Audio\AudioPlayer.cpp" />
     <ClCompile Include="Renderer\Renderer.cpp" />
     <ClCompile Include="2D\Renderer\Basic2DRenderer.cpp" />
@@ -244,7 +243,6 @@
     <ClInclude Include="Events\EventDispatcher.h" />
     <ClInclude Include="Events\EventListener.h" />
     <ClInclude Include="Events\EventListenerList.h" />
-    <ClInclude Include="Physics\PhysicsManager.h" />
     <ClInclude Include="Audio\AudioPlayer.h" />
     <ClInclude Include="Renderer\Renderer.h" />
     <ClInclude Include="2D\Renderer\Basic2DRenderer.h" />

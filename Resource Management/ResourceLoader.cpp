@@ -1,5 +1,6 @@
 #include "ResourceLoader.h"
 #include "../Utilities/strut.h"
+#include <fstream>
 
 std::string Aela::ResourceLoader::getErrorMessage() {
 	return errorMessage;

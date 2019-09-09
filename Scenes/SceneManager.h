@@ -8,7 +8,6 @@
  */
 
 #pragma once
-#include "stdafx.h"
 #include "Scene.h"
 #include "../Events/Event.h"
 #include "../Events/EventListenerList.h"

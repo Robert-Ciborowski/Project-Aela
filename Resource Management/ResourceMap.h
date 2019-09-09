@@ -1,5 +1,3 @@
-#include <utility>
-
 /*
 * Class: ResourceMap
 * Author: Robert Ciborowski
@@ -10,8 +8,8 @@
 #pragma once
 
 #include <unordered_map>
+#include <utility>
 
-#include "stdafx.h"
 #include "Resource.h"
 
 namespace Aela {

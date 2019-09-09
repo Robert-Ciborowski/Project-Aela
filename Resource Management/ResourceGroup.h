@@ -9,7 +9,6 @@
 
 #include <unordered_map>
 
-#include "stdafx.h"
 #include "ResourceQuery.h"
 
 #include "../2D/Texture/GLTexture.h"

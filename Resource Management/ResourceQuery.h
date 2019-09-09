@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include "stdafx.h"
 #include "ResourceLoader.h"
 
 namespace Aela {

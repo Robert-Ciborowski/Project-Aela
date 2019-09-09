@@ -1,6 +1,5 @@
 #pragma once
 
-#include "stdafx.h"
 #include "Resource.h"
 #include "ResourceMap.h"
 #include <unordered_map>

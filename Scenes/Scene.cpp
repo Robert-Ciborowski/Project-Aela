@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "stdafx.h"
 
 using namespace Aela;
 

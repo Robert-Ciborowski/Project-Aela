@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include "stdafx.h"
 #include "Resource.h"
 #include "ResourceQuery.h"
 #include "ResourceGroup.h"
