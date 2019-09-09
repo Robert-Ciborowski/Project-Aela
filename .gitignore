@@ -20,14 +20,15 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-# Random stuff that gets generated in build
+# Random stuff that gets generated
 *.exe
 *.lastcodeanalysissucceeded
 *.exp
 *.pdb
-
-# Other
+*.idb
+*.tlog
 *.DS_Store
+*.vcxproj.FileListAbsolute.txt
 CMakeLists.txt
 
 # Visual Studio 2015/2017 cache/options directory
