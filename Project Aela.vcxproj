@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4E293F19-9054-4754-8589-BDB2C4994611}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ProjectAela</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\Robert\Documents\Visual Studio 2019\Libraries\boost_1_70_0;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\freetype 2.9\include;$(IncludePath);C:\Users\Robert\Documents\Visual Studio 2019\Libraries\SDL2-2.0.5\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\lua 5.3.4 x64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glm-0.9.7.1;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glew 2.1.0\glew-2.1.0\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\zlib 1.2.11\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libpng 1.6.35\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\CTPL %28Thread Pool Library%29;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\pybind11\include;%(AdditionalIncludeDirectories)C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;%(AdditionalIncludeDirectories)</IncludePath>
+    <LibraryPath>
+    </LibraryPath>
+    <OutDir>build\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>
+    </LibraryPath>
+    <IncludePath>C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libvorbis-1.3.6\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libogg-1.3.3\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\boost_1_70_0;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\freetype 2.9\include;$(IncludePath);C:\Users\Robert\Documents\Visual Studio 2019\Libraries\SDL2-2.0.5\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glm-0.9.7.1;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glew 2.1.0\glew-2.1.0\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\zlib 1.2.11\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libpng 1.6.35\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\CTPL %28Thread Pool Library%29;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\pybind11\include;%(AdditionalIncludeDirectories)C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;%(AdditionalIncludeDirectories)</IncludePath>
+    <OutDir>build\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\Robert\Documents\Visual Studio 2019\Libraries\boost_1_70_0;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\freetype 2.9\include;$(IncludePath);C:\Users\Robert\Documents\Visual Studio 2019\Libraries\SDL2-2.0.5\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\lua 5.3.4 x64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glm-0.9.7.1;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glew 2.1.0\glew-2.1.0\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\zlib 1.2.11\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libpng 1.6.35\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\CTPL %28Thread Pool Library%29;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\pybind11\include;%(AdditionalIncludeDirectories)C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;%(AdditionalIncludeDirectories)</IncludePath>
+    <LibraryPath>
+    </LibraryPath>
+    <OutDir>build\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>
+    </LibraryPath>
+    <IncludePath>C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libvorbis-1.3.6\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libogg-1.3.3\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\boost_1_70_0;C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\freetype 2.9\include;$(IncludePath);C:\Users\Robert\Documents\Visual Studio 2019\Libraries\SDL2-2.0.5\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glm-0.9.7.1;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\glew 2.1.0\glew-2.1.0\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\zlib 1.2.11\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\libpng 1.6.35\include;C:\Users\Robert\Documents\Visual Studio 2019\Libraries\CTPL %28Thread Pool Library%29;%(AdditionalIncludeDirectories)C:\Users\Robert\Documents\Visual Studio 2019\Libraries\OpenAL\include;%(AdditionalIncludeDirectories)</IncludePath>
+    <OutDir>build\bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\glfw-3.2.1.bin.WIN32\lib-vc2015\glfw3.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\GLEW Debug\GLEW_1130.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>
+      </ImportLibrary>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;PROJECTAELA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;lua53.lib;openAL32.lib;glew32.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\freetype 2.3.5\lib\freetype.lib;C:\Users\Robert\Documents\Visual Studio 2015\Projects\Project Aela\Release\Project Aela.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>
+      </ImportLibrary>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\glfw-3.2.1.bin.WIN32\lib-vc2015\glfw3.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\GLEW Debug\GLEW_1130.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+    <Lib>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;PROJECTAELA_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/Qspectre %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;SDL2.lib;SDL2main.lib;lua53.lib;openAL32.lib;glew32.lib;C:\Users\Robert\Documents\Visual Studio 2015\Libraries\freetype 2.3.5\lib\freetype.lib;C:\Users\Robert\Documents\Visual Studio 2015\Projects\Project Aela\Release\Project Aela.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="2D\Animation\KeyFrame2D.cpp" />
+    <ClCompile Include="2D\Renderer\Basic2DGLRenderer.cpp" />
+    <ClCompile Include="2D\Renderer\Basic2DRenderer.cpp" />
+    <ClCompile Include="2D\Simple 2D Framebuffer\Simple2DFramebuffer.cpp" />
+    <ClCompile Include="2D\Simple 2D Framebuffer\Simple2DGLFramebuffer.cpp" />
+    <ClCompile Include="2D\Texture\GLSpriteSheetLoader.cpp" />
+    <ClCompile Include="2D\Texture\GLTextureLoader.cpp" />
+    <ClCompile Include="2D\Fonts\Font.cpp" />
+    <ClCompile Include="2D\Fonts\FontLoader.cpp" />
+    <ClCompile Include="2D\Transformable\Transformable2D.cpp" />
+    <ClCompile Include="3D\Animation\KeyFrameMaterial.cpp" />
+    <ClCompile Include="3D\Animation\KeyFrameModel.cpp" />
+    <ClCompile Include="Animation\AnimationLooper.cpp" />
+    <ClCompile Include="Animation\Animator.cpp" />
+    <ClCompile Include="3D\Animation\KeyedAnimator3D.cpp" />
+    <ClCompile Include="3D\Animation\KeyFrame3D.cpp" />
+    <ClCompile Include="3D\Camera\Camera3D.cpp" />
+    <ClCompile Include="3D\Light\LightEntity.cpp" />
+    <ClCompile Include="3D\Maps\Map3D.cpp" />
+    <ClCompile Include="3D\Maps\Map3DLoader.cpp" />
+    <ClCompile Include="3D\Maps\Map3DExporter.cpp" />
+    <ClCompile Include="3D\Materials\Material.cpp" />
+    <ClCompile Include="3D\Materials\GLMaterialLoader.cpp" />
+    <ClCompile Include="3D\Models\Model.cpp" />
+    <ClCompile Include="3D\Models\OBJLoader.cpp" />
+    <ClCompile Include="3D\Models\SubModel.cpp" />
+    <ClCompile Include="3D\Particles\Particle.cpp" />
+    <ClCompile Include="3D\Particles\ParticleEmitter.cpp" />
+    <ClCompile Include="3D\Particles\GLParticleLoader.cpp" />
+    <ClCompile Include="3D\Particles\PlanarParticleEmitter.cpp" />
+    <ClCompile Include="3D\Particles\PointParticleEmitter.cpp" />
+    <ClCompile Include="3D\Renderer\Basic3DGLModelRenderer.cpp" />
+    <ClCompile Include="3D\Renderer\Basic3DGLRenderer.cpp" />
+    <ClCompile Include="3D\Renderer\Basic3DGLShadowRenderer.cpp" />
+    <ClCompile Include="3D\Renderer\Basic3DGLSkyboxRenderer.cpp" />
+    <ClCompile Include="3D\Skybox\Skybox.cpp" />
+    <ClCompile Include="3D\Skybox\SkyboxEntity.cpp" />
+    <ClCompile Include="3D\Skybox\GLSkyboxLoader.cpp" />
+    <ClCompile Include="3D\Transformable\Transformable3D.cpp" />
+    <ClCompile Include="Aela_Engine.cpp" />
+    <ClCompile Include="Animation\KeyFrame.cpp" />
+    <ClCompile Include="Audio\AudioBuffer.cpp" />
+    <ClCompile Include="Audio\AudioClip.cpp" />
+    <ClCompile Include="Audio\AudioListener.cpp" />
+    <ClCompile Include="Audio\AudioLooper.cpp" />
+    <ClCompile Include="Audio\AudioPlayer.cpp" />
+    <ClCompile Include="Audio\AudioStream.cpp" />
+    <ClCompile Include="Audio\OGGAudioStream.cpp" />
+    <ClCompile Include="Audio\OGGClipLoader.cpp" />
+    <ClCompile Include="Audio\OGGStreamLoader.cpp" />
+    <ClCompile Include="Audio\SimpleAudioPlayer.cpp" />
+    <ClCompile Include="Audio\WAVEClipLoader.cpp" />
+    <ClCompile Include="Compression\Compressor.cpp" />
+    <ClCompile Include="Control Manager\ControlManager.cpp" />
+    <ClCompile Include="Entities\Entity.cpp" />
+    <ClCompile Include="3D\Models\ModelEntity.cpp" />
+    <ClCompile Include="Error Handler\Error Handler\AelaErrorHandler.cpp" />
+    <ClCompile Include="Error Handler\Simple Error\AelaSimpleError.cpp" />
+    <ClCompile Include="Error Handler\ErrorHandling.cpp" />
+    <ClCompile Include="Events\Event.cpp" />
+    <ClCompile Include="Events\EventConstants.cpp" />
+    <ClCompile Include="Events\EventDispatcher.cpp" />
+    <ClCompile Include="Events\EventHandler.cpp" />
+    <ClCompile Include="Events\EventListenerList.cpp" />
+    <ClCompile Include="Events\KeyEvent.cpp" />
+    <ClCompile Include="Events\MouseEvent.cpp" />
+    <ClCompile Include="Events\WindowResizeEvent.cpp" />
+    <ClCompile Include="Menus\AbstractLayoutManager.cpp" />
+    <ClCompile Include="Menus\Button.cpp" />
+    <ClCompile Include="Menus\Component.cpp" />
+    <ClCompile Include="Menus\Container.cpp" />
+    <ClCompile Include="Menus\ImageComponent.cpp" />
+    <ClCompile Include="Menus\Label.cpp" />
+    <ClCompile Include="Menus\Menu.cpp" />
+    <ClCompile Include="Menus\RectComponent.cpp" />
+    <ClCompile Include="Menus\TextInput.cpp" />
+    <ClCompile Include="Menus\SubMenu.cpp" />
+    <ClCompile Include="Old Garbage\shader.cpp" />
+    <ClCompile Include="Old Garbage\texture.cpp" />
+    <ClCompile Include="Framerate Calculator\FramerateCalculator.cpp" />
+    <ClCompile Include="Python\PythonExecuter.cpp" />
+    <ClCompile Include="Renderer\GLRenderer.cpp" />
+    <ClCompile Include="Renderer\Renderer.cpp" />
+    <ClCompile Include="Resource Management\ResourceGroup.cpp" />
+    <ClCompile Include="Resource Management\ResourceLoader.cpp" />
+    <ClCompile Include="Resource Management\ResourceMap.cpp" />
+    <ClCompile Include="Resource Management\ResourceQuery.cpp" />
+    <ClCompile Include="Scenes\Scene.cpp" />
+    <ClCompile Include="Scenes\SceneManager.cpp" />
+    <ClCompile Include="Resource Management\Resource.cpp" />
+    <ClCompile Include="Resource Management\ResourceManager.cpp" />
+    <ClCompile Include="Time\Stopwatch\Stopwatch.cpp" />
+    <ClCompile Include="Time\Timer\Timer.cpp" />
+    <ClCompile Include="Transformable\Transformable.cpp" />
+    <ClCompile Include="User Environment\UserEnvironment.cpp" />
+    <ClCompile Include="3D\Bounding Box\BoundingBox3D.cpp" />
+    <ClCompile Include="Utilities\Texture Splitter\GLTextureSplitter.cpp" />
+    <ClCompile Include="Utilities\Transformations\PointRotation3D.cpp" />
+    <ClCompile Include="Window\Window.cpp" />
+    <ClCompile Include="XML\XMLLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="2D\Positioning Mode\PositioningMode2D.h" />
+    <ClInclude Include="2D\Texture\GLSpriteSheetLoader.h" />
+    <ClInclude Include="2D\Fonts\FontLoader.h" />
+    <ClInclude Include="3D\Animation\AnimationTrackModel.h" />
+    <ClInclude Include="3D\Animation\KeyFrameModel.h" />
+    <ClInclude Include="Animation\AnimationLooper.h" />
+    <ClInclude Include="2D\Animation\KeyFrame2D.h" />
+    <ClInclude Include="2D\Animation\AnimationTrack2D.h" />
+    <ClInclude Include="2D\Renderer\Basic2DGLRenderer.h" />
+    <ClInclude Include="2D\Renderer\Basic2DRenderer.h" />
+    <ClInclude Include="2D\Simple 2D Framebuffer\Simple2DFramebuffer.h" />
+    <ClInclude Include="2D\Simple 2D Framebuffer\Simple2DGLFramebuffer.h" />
+    <ClInclude Include="2D\Texture\GLImage.h" />
+    <ClInclude Include="2D\Texture\Image.h" />
+    <ClInclude Include="2D\Texture\GLTexture.h" />
+    <ClInclude Include="2D\Texture\GLTextureLoader.h" />
+    <ClInclude Include="2D\Texture\Texture.h" />
+    <ClInclude Include="2D\Fonts\Font.h" />
+    <ClInclude Include="2D\Transformable\Transformable2D.h" />
+    <ClInclude Include="3D\Animation\AnimationTrackMaterial.h" />
+    <ClInclude Include="3D\Animation\KeyFrameMaterial.h" />
+    <ClInclude Include="3D\Billboards\BillboardEntity.h" />
+    <ClInclude Include="Animation\Animator.h" />
+    <ClInclude Include="3D\Animation\KeyedAnimator3D.h" />
+    <ClInclude Include="3D\Animation\KeyFrame3D.h" />
+    <ClInclude Include="3D\Animation\AnimationTrack3D.h" />
+    <ClInclude Include="3D\Billboards\GLBillboardEntity.h" />
+    <ClInclude Include="3D\Camera\Camera3D.h" />
+    <ClInclude Include="3D\Light\LightEntity.h" />
+    <ClInclude Include="3D\Maps\Map3D.h" />
+    <ClInclude Include="3D\Maps\Map3DLoader.h" />
+    <ClInclude Include="3D\Maps\Map3DExporter.h" />
+    <ClInclude Include="3D\Materials\Material.h" />
+    <ClInclude Include="3D\Materials\GLMaterialLoader.h" />
+    <ClInclude Include="3D\Models\Model.h" />
+    <ClInclude Include="3D\Models\OBJLoader.h" />
+    <ClInclude Include="3D\Models\SubModel.h" />
+    <ClInclude Include="3D\Particles\Particle.h" />
+    <ClInclude Include="3D\Particles\ParticleEmitter.h" />
+    <ClInclude Include="3D\Particles\GLParticleLoader.h" />
+    <ClInclude Include="3D\Particles\PlanarParticleEmitter.h" />
+    <ClInclude Include="3D\Particles\PointParticleEmitter.h" />
+    <ClInclude Include="3D\Renderer\Basic3DGLModelRenderer.h" />
+    <ClInclude Include="3D\Renderer\Basic3DGLRenderer.h" />
+    <ClInclude Include="3D\Renderer\Basic3DGLShadowRenderer.h" />
+    <ClInclude Include="3D\Renderer\Basic3DGLSkyboxRenderer.h" />
+    <ClInclude Include="3D\Skybox\Skybox.h" />
+    <ClInclude Include="3D\Skybox\SkyboxEntity.h" />
+    <ClInclude Include="3D\Skybox\GLSkyboxLoader.h" />
+    <ClInclude Include="3D\Transformable\Transformable3D.h" />
+    <ClInclude Include="Animation\KeyFrame.h" />
+    <ClInclude Include="Animation\AnimationTrack.h" />
+    <ClInclude Include="Audio\AudioBuffer.h" />
+    <ClInclude Include="Audio\AudioClip.h" />
+    <ClInclude Include="Audio\AudioListener.h" />
+    <ClInclude Include="Audio\AudioLooper.h" />
+    <ClInclude Include="Audio\AudioPlayer.h" />
+    <ClInclude Include="Audio\AudioStream.h" />
+    <ClInclude Include="Audio\OGGAudioStream.h" />
+    <ClInclude Include="Audio\OGGClipLoader.h" />
+    <ClInclude Include="Audio\OGGStreamLoader.h" />
+    <ClInclude Include="Audio\SimpleAudioPlayer.h" />
+    <ClInclude Include="Audio\WAVEClipLoader.h" />
+    <ClInclude Include="Compression\CompressionError.h" />
+    <ClInclude Include="Compression\Compressor.h" />
+    <ClInclude Include="Control Manager\ControlManager.h" />
+    <ClInclude Include="Entities\Entity.h" />
+    <ClInclude Include="3D\Models\ModelEntity.h" />
+    <ClInclude Include="Error Handler\Error Handler\AelaErrorHandler.h" />
+    <ClInclude Include="Error Handler\Simple Error\AelaSimpleError.h" />
+    <ClInclude Include="Error Handler\ErrorHandling.h" />
+    <ClInclude Include="Events\Event.h" />
+    <ClInclude Include="Events\EventConstants.h" />
+    <ClInclude Include="Events\EventDispatcher.h" />
+    <ClInclude Include="Events\EventHandler.h" />
+    <ClInclude Include="Events\EventListener.h" />
+    <ClInclude Include="Events\EventListenerList.h" />
+    <ClInclude Include="Events\KeyEvent.h" />
+    <ClInclude Include="Events\Listener.h" />
+    <ClInclude Include="Events\MouseEvent.h" />
+    <ClInclude Include="Events\WindowResizeEvent.h" />
+    <ClInclude Include="Menus\AbstractLayoutManager.h" />
+    <ClInclude Include="Menus\Button.h" />
+    <ClInclude Include="Menus\Component.h" />
+    <ClInclude Include="Menus\Container.h" />
+    <ClInclude Include="Menus\ImageComponent.h" />
+    <ClInclude Include="Menus\Label.h" />
+    <ClInclude Include="Menus\LayoutManager.h" />
+    <ClInclude Include="Menus\Menu.h" />
+    <ClInclude Include="Menus\RectComponent.h" />
+    <ClInclude Include="Menus\stdafx.h" />
+    <ClInclude Include="Menus\TextInput.h" />
+    <ClInclude Include="Menus\SubMenu.h" />
+    <ClInclude Include="Old Garbage\shader.hpp" />
+    <ClInclude Include="Old Garbage\texture.hpp" />
+    <ClInclude Include="Framerate Calculator\FramerateCalculator.h" />
+    <ClInclude Include="Python\ExposedClasses.h" />
+    <ClInclude Include="Python\KeyFrameMaterialFunctions.h" />
+    <ClInclude Include="Python\PythonExecuter.h" />
+    <ClInclude Include="Python\ResourceManagerFunctions.h" />
+    <ClInclude Include="Python\TimerFunctions.h" />
+    <ClInclude Include="Renderer\GLRenderer.h" />
+    <ClInclude Include="Renderer\Renderer.h" />
+    <ClInclude Include="Resource Management\ResourceGroup.h" />
+    <ClInclude Include="Resource Management\ResourceMap.h" />
+    <ClInclude Include="Resource Management\ResourcePaths.h" />
+    <ClInclude Include="Resource Management\ResourceQuery.h" />
+    <ClInclude Include="Scenes\Scene.h" />
+    <ClInclude Include="Scenes\SceneManager.h" />
+    <ClInclude Include="Time\Clock.h" />
+    <ClInclude Include="Time\Stopwatch\Stopwatch.h" />
+    <ClInclude Include="Time\Time.h" />
+    <ClInclude Include="Time\Timer\Timer.h" />
+    <ClInclude Include="Transformable\Transformable.h" />
+    <ClInclude Include="User Environment\UserEnvironment.h" />
+    <ClInclude Include="Utilities\alut.h" />
+    <ClInclude Include="Utilities\Colour\ColourRGB.h" />
+    <ClInclude Include="Utilities\Colour\ColourRGBA.h" />
+    <ClInclude Include="3D\Bounding Box\BoundingBox3D.h" />
+    <ClInclude Include="Utilities\dirut.h" />
+    <ClInclude Include="Utilities\enumut.h" />
+    <ClInclude Include="Utilities\flut.h" />
+    <ClInclude Include="Utilities\glmut.h" />
+    <ClInclude Include="Utilities\intut.h" />
+    <ClInclude Include="Utilities\pairut.h" />
+    <ClInclude Include="Utilities\Paths\PathSegment.h" />
+    <ClInclude Include="Utilities\Paths\PathSegment2D.h" />
+    <ClInclude Include="Utilities\Paths\PathSegment3D.h" />
+    <ClInclude Include="Utilities\pyut.h" />
+    <ClInclude Include="Utilities\Rect\Cuboid.h" />
+    <ClInclude Include="Utilities\Rect\Rect.h" />
+    <ClInclude Include="Aela_Engine.h" />
+    <ClInclude Include="Resource Management\Resource.h" />
+    <ClInclude Include="Resource Management\ResourceLoader.h" />
+    <ClInclude Include="Resource Management\ResourceManager.h" />
+    <ClInclude Include="Utilities\Safe Functions.h" />
+    <ClInclude Include="Utilities\strut.h" />
+    <ClInclude Include="Utilities\Texture Splitter\GLTextureSplitter.h" />
+    <ClInclude Include="Utilities\Transformations\PointRotation3D.h" />
+    <ClInclude Include="Window\Window.h" />
+    <ClInclude Include="XML\rapidxml-1.13\rapidxml.hpp" />
+    <ClInclude Include="XML\rapidxml-1.13\rapidxml_iterators.hpp" />
+    <ClInclude Include="XML\rapidxml-1.13\rapidxml_print.hpp" />
+    <ClInclude Include="XML\rapidxml-1.13\rapidxml_utils.hpp" />
+    <ClInclude Include="XML\rapidxml-1.13\why_is_this_here.h" />
+    <ClInclude Include="XML\XMLLoader.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
