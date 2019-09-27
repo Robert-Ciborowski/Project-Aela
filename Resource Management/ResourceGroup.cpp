@@ -1,4 +1,5 @@
 #include "ResourceGroup.h"
+#include <iostream>
 
 using namespace Aela;
 

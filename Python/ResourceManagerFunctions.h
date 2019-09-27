@@ -136,7 +136,7 @@ namespace PythonFunctions {
 		spriteSheetLoader.setSpriteWidth(spriteWidth);
 		spriteSheetLoader.setSpriteHeight(spriteHeight);
 		self.bindLoader(&spriteSheetLoader);
-		std::string groupName = std::string("png_sprite_sheets") + (std::string) extract<std::string>(spriteSheetNames[0]);
+		std::string groupName = std::string("png_sprite_sheets_") + (std::string) extract<std::string>(spriteSheetNames[0]);
 		self.bindGroup(groupName);
 
 		for (int i = 0; i < len(spriteSheetNames); i++) {
