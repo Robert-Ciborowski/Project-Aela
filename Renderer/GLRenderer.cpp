@@ -285,6 +285,9 @@ void GLRenderer::endRenderingFrame() {
     // glClearColor(0, 0.5, 0, 1);
     // glClear(GL_COLOR_BUFFER_BIT);
 
+	// outputToWindow = Rect<int>(0, 0, 1024, 768);
+	// std::cout << "Out to win: " << outputToWindow << "\n";
+
     Rect<int>* dimensions = (Rect<int>*) window->getDimensions();
     basic2DRenderer.renderImageToFramebuffer(&mainFramebufferImage, 0, &outputToWindow, dimensions, dimensions, nullptr, PositioningMode2D::TOP_LEFT);
     

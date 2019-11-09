@@ -38,7 +38,7 @@ bool Window::createWindow(int setWidth, int setHeight, int setXPosition, int set
 	// The window's SDL flags. By default, this uses SDL_WINDOW_MOUSE_FOCUS as if it were NULL.
 	SDL_WindowFlags resizableFlag = SDL_WINDOW_MOUSE_FOCUS, shownFlag = SDL_WINDOW_MOUSE_FOCUS,
 	borderlessFlag = SDL_WINDOW_MOUSE_FOCUS, minimizedFlag = SDL_WINDOW_MOUSE_FOCUS,
-	openGLFlag = SDL_WINDOW_MOUSE_FOCUS;
+	openGLFlag = SDL_WINDOW_MOUSE_FOCUS, highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
 
 	// This starts looking at the flags inputted as parameters.
 	for (unsigned int i = 0; i < flags.size(); i++) {
@@ -52,6 +52,8 @@ bool Window::createWindow(int setWidth, int setHeight, int setXPosition, int set
 			minimizedFlag = SDL_WINDOW_MINIMIZED;
 		} else if (flags[i] == WindowFlag::AELA_WINDOW_OPENGL) {
 			openGLFlag = SDL_WINDOW_OPENGL;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_HIGH_DPI) {
+			highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
 		} else if (flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN|| flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN_DESKTOP
 			|| flags[i] == WindowFlag::AELA_WINDOW_WINDOWED) {
 			setFullscreen(flags[i]);
@@ -67,7 +69,7 @@ bool Window::createWindow(int setWidth, int setHeight, int setXPosition, int set
 	}
 
 	// This creates and sets up the SDL window.
-	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, resizableFlag | shownFlag | borderlessFlag | minimizedFlag | openGLFlag);
+	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, resizableFlag | shownFlag | borderlessFlag | minimizedFlag | openGLFlag | highDPIFlag);
 	if (window == NULL) {
 		return false;
 	}

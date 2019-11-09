@@ -32,6 +32,8 @@ int Aela::Engine::setupWindow(unsigned int width, unsigned int height, unsigned 
 	// Note: the renderer will render black and then set the window to be shown rather than hidden once the window is bound with it.
 	window.addProperty(WindowFlag::AELA_WINDOW_HIDDEN);
 	window.addProperty(WindowFlag::AELA_WINDOW_OPENGL);
+	window.addProperty(WindowFlag::AELA_WINDOW_HIGH_DPI);
+	// window.addProperty(WindowFlag::AELA_WINDOW_BORDERLESS);
 	bool windowCreationSuccess = window.createWindow(width, height, windowXPosition, windowYPosition, name);
 
 	if (!windowCreationSuccess) {
