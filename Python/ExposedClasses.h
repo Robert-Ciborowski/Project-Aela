@@ -42,8 +42,9 @@ BOOST_PYTHON_MODULE(Aela) {
 		.def("getWidth", &Window::getWidth)
 		.def("getHeight", &Window::getHeight)
 		.def("setDimensions", &Window::setDimensions)
-		.def("setFocus", &Window::setFocus)
-		.def("isFullscreen", &Window::isFullscreen);
+		.def("isFocused", &Window::isFocused)
+		.def("isFullscreen", &Window::isFullscreen)
+		.def("isMaximized", &Window::isMaximized);
 
 	// Time
 

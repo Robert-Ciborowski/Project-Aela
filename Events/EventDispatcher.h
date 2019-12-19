@@ -26,6 +26,7 @@ namespace Aela {
 
 			void fireEvent(Event* event);
 			void addListener(int type, EventListener listener);
+
 		private:
 			std::atomic<bool> running;
 

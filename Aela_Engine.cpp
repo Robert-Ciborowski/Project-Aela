@@ -30,7 +30,6 @@ Aela::Engine::~Engine() {
 
 int Aela::Engine::setupWindow(unsigned int width, unsigned int height, unsigned int windowXPosition, unsigned int windowYPosition, std::string name) {
 	// Note: the renderer will render black and then set the window to be shown rather than hidden once the window is bound with it.
-	window.addProperty(WindowFlag::AELA_WINDOW_HIDDEN);
 	window.addProperty(WindowFlag::AELA_WINDOW_OPENGL);
 	window.addProperty(WindowFlag::AELA_WINDOW_HIGH_DPI);
 	// window.addProperty(WindowFlag::AELA_WINDOW_BORDERLESS);
@@ -215,6 +214,10 @@ void Engine::update() {
 			functionsToRunNextUpdate.front()();
 			functionsToRunNextUpdate.pop();
 		}
+	}
+
+	if (!window.isMaximized()) {
+		SDL_Delay(100);
 	}
 }
 

@@ -35,14 +35,7 @@ void EventHandler::updateSDLEvents() {
 				window->quit();
 				break;
 			case SDL_WINDOWEVENT:
-				switch (event.window.event) {
-					case SDL_WINDOWEVENT_FOCUS_GAINED:
-						window->setFocus(true);
-						break;
-					case SDL_WINDOWEVENT_FOCUS_LOST:
-						window->setFocus(false);
-						break;
-				}
+				window->processSDLWindowEvent(event);
 				break;
 			case SDL_KEYDOWN:
 				dispatcher.fireEvent(new KeyEvent(EventConstants::KEY_PRESSED, event.key.keysym.sym, event.key.keysym.mod));

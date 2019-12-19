@@ -14,8 +14,7 @@
 namespace Aela {
 	enum class WindowFlag {
 		AELA_WINDOW_RESIZABLE, AELA_WINDOW_NON_RESIZABLE,
-		AELA_WINDOW_SHOWN, AELA_WINDOW_HIDDEN,
-		AELA_WINDOW_BORDERLESS,
+		AELA_WINDOW_HIDDEN, AELA_WINDOW_BORDERLESS,
 		AELA_WINDOW_MINIMIZED, AELA_WINDOW_MAXIMIZED,
 		AELA_WINDOW_OPENGL, AELA_WINDOW_FULLSCREEN,
 		AELA_WINDOW_FULLSCREEN_DESKTOP, AELA_WINDOW_WINDOWED ,
@@ -46,15 +45,17 @@ namespace Aela {
 			void getCursorPositionGlobally(int* x, int* y);
 			void setCursorPositionInWindow(int x, int y);
 			void setCursorPositionGlobally(int x, int y);
-			void setFocus(bool focus);
 			void setFullscreen(WindowFlag type);
-			bool isFullscreen();
 			void show();
 			std::string getWindowName();
 			void quit();
 			bool quitCheck();
-			bool isFocused();
+			void processSDLWindowEvent(SDL_Event& event);
 			bool wasResized();
+
+			bool isFullscreen();
+			bool isFocused();
+			bool isMaximized();
 
 			void showCursor();
 			static void hideCursor();

@@ -34,6 +34,7 @@ bool Aela::XMLLoader::loadFromCompressedFile(std::string& src) {
 	CompressionError ret;
 	std::ifstream input;
 	std::stringstream stringstream;
+
 	Compressor compressor;
 	input.open(src, std::ifstream::in | std::ios::binary);
 
@@ -54,20 +55,21 @@ bool Aela::XMLLoader::loadFromCompressedFile(std::string& src) {
 	input.close();
 	std::string str = stringstream.str();
 	size_t count = str.size();
-	char* data = (char*) malloc(count);
-	memcpy_s(data, count, str.data(), count);
-	loadFromText(data);
+	char* data = (char*) malloc(count + 1);
+	memcpy_s(data, count + 1, str.c_str(), count + 1);
+	loadFromText(data, str);
 	free(data);
 	return true;
 }
 
-void Aela::XMLLoader::loadFromText(char* text) {
+void Aela::XMLLoader::loadFromText(char* text, std::string removeMePls) {
 	xml_document<> doc;
 	// std::cout << text << " is the text\n";
 	doc.parse<0>(text);
 
 	// This reads the XML by starting at the top node.
 	xml_node<>* node = doc.first_node(TOP_NODE_NAME);
+
 	processNode(node, nullptr);
 }
 

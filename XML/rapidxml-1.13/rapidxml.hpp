@@ -1407,9 +1407,10 @@ namespace rapidxml
 				else {
 					// if (*text < 32 || *text > 126) {
 						// Weird control character.
-						std::cout << "Skipping unsupported XML character: " << *text << "\n";
+						std::cout << "Skipping unsupported XML character: '" << (int) *text << "'\n";
 						char* text2 = text + 1;
-						std::cout << "Text following your character: ";
+						std::cout << "Text following your character: '";
+
 						while (*text2 != 0 && text2 < text + 20) {
 							std::cout << *text2;
 							text2++;

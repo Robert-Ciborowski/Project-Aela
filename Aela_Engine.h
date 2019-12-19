@@ -118,5 +118,8 @@ namespace Aela {
 			bool useStopwatch = false;
 
 			std::queue<std::function<void()>> functionsToRunNextUpdate;
+
+			// A delay to use when the window has been minimized.
+			const Uint32 MINIMIZED_DELAY = 100;
 	};
 }

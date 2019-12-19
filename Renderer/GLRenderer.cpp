@@ -555,9 +555,9 @@ void GLRenderer::resolutionWasChanged() {
 	Renderer::resolutionWasChanged();
 	setWindow(window);
 	setTime(time);
-	// setup3D();
-	// setup2D();
-	// setupWindow();
+	 setup3D();
+	 setup2D();
+	 setupWindow();
 }
 
 void GLRenderer::setOutputToWindow(Rect<int>* outputToWindow) {
