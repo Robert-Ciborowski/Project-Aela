@@ -29,11 +29,21 @@ Aela::Engine::~Engine() {
 }
 
 int Aela::Engine::setupWindow(unsigned int width, unsigned int height, unsigned int windowXPosition, unsigned int windowYPosition, std::string name) {
-	// Note: the renderer will render black and then set the window to be shown rather than hidden once the window is bound with it.
-	window.addProperty(WindowFlag::AELA_WINDOW_OPENGL);
-	window.addProperty(WindowFlag::AELA_WINDOW_HIGH_DPI);
-	// window.addProperty(WindowFlag::AELA_WINDOW_BORDERLESS);
+	setupWindowProperties();
 	bool windowCreationSuccess = window.createWindow(width, height, windowXPosition, windowYPosition, name);
+
+	if (!windowCreationSuccess) {
+		AelaErrorHandling::windowError("Project Aela Window", "The Aela Window failed to initialise!");
+		return -1;
+	}
+
+	window.makeWindowOpenGLContext();
+	return 0;
+}
+
+int Aela::Engine::setupWindowAtCenter(unsigned int width, unsigned int height, std::string name) {
+	setupWindowProperties();
+	bool windowCreationSuccess = window.createWindowAtCenter(width, height, name);
 
 	if (!windowCreationSuccess) {
 		AelaErrorHandling::windowError("Project Aela Window", "The Aela Window failed to initialise!");
@@ -313,6 +323,13 @@ PythonExecuter* Aela::Engine::getPythonExecuter() {
 
 SimpleAudioPlayer* Aela::Engine::getSimpleAudioPlayer() {
 	return &simpleAudioPlayer;
+}
+
+void Aela::Engine::setupWindowProperties() {
+	// Note: the renderer will render black and then set the window to be shown rather than hidden once the window is bound with it.
+	window.addProperty(WindowFlag::AELA_WINDOW_OPENGL);
+	window.addProperty(WindowFlag::AELA_WINDOW_HIGH_DPI);
+	// window.addProperty(WindowFlag::AELA_WINDOW_BORDERLESS);
 }
 
 void Engine::runNextUpdate(std::function<void()> function) {

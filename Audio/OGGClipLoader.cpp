@@ -72,7 +72,7 @@ bool Aela::OGGClipLoader::load(ResourceMap& resources, std::string src) {
 	memcpy_s(actualData, data.size(), data.data(), data.size());
 
 	AudioClip* clip = new AudioClip(src, actualData);
-	clip->setSize(data.size());
+	clip->setSize((ALsizei) data.size());
 	clip->setFormat(channels, BITS_PER_SAMPLE);
 	clip->setSampleRate(rate);
 

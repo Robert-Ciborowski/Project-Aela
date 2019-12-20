@@ -30,8 +30,10 @@ namespace Aela {
 
 		// These should be used to start the loading.
 		bool loadFromFile(std::string& src);
+		bool loadFromFile(std::wstring& src);
 		bool loadFromCompressedFile(std::string& src);
-		void loadFromText(char* text, std::string removeMePls);
+		bool loadFromCompressedFile(std::wstring& src);
+		void loadFromText(char* text);
 
 		// This function is called upon each XML Node/Tag.
 		virtual void processXMLNodeData(Node& node);

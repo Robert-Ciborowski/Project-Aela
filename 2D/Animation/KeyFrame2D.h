@@ -21,11 +21,11 @@ namespace Aela {
 			virtual void setup(KeyFrame* previousKeyFrame);
 			virtual void end();
 
-			ColourRGBA* getTintAtTime(long long currentTime, long long endTime);
-			Rect<int>* getDimensionsAtTime(long long currentTime, long long endTime);
+			ColourRGBA& getTintAtTime(long long currentTime, long long endTime);
+			Rect<int>& getDimensionsAtTime(long long currentTime, long long endTime);
 
 			// I have to make a copy of this function. Otherwise, this awful compiler breaks.
-			Rect<int>* getDimensionsAtTime2(long long currentTime, long long endTime);
+			Rect<int>& getDimensionsAtTime2(long long currentTime, long long endTime);
 
 			KeyFrameType getType();
 			void setObject(std::shared_ptr<Transformable2D> object);

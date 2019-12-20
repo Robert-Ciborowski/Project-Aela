@@ -27,51 +27,40 @@ void Window::addProperty(WindowFlag flag) {
 	}
 }
 
-bool Window::createWindow(int setWidth, int setHeight, int setXPosition, int setYPosition, std::string setName) {
+bool Window::createWindow(int width, int height, int xPosition, int yPosition, std::string name) {
 	// This sets general object properties.
-	windowName = setName.c_str();
-	width = setWidth;
-	height = setHeight;
-	hasFocus = true;
-	maximized = true;
-	dimensions = Rect<unsigned int>(0, 0, width, height);
-
+	setBasicProperties(width, height, name);
 	SDL_Init(SDL_INIT_EVERYTHING);
-
-	// The window's SDL flags. By default, this uses SDL_WINDOW_MOUSE_FOCUS as if it were NULL.
-	SDL_WindowFlags resizableFlag = SDL_WINDOW_MOUSE_FOCUS, shownFlag = SDL_WINDOW_SHOWN,
-	borderlessFlag = SDL_WINDOW_MOUSE_FOCUS, minimizedFlag = SDL_WINDOW_MOUSE_FOCUS,
-	openGLFlag = SDL_WINDOW_MOUSE_FOCUS, highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
-
-	// This starts looking at the flags inputted as parameters.
-	for (unsigned int i = 0; i < flags.size(); i++) {
-		if (flags[i] == WindowFlag::AELA_WINDOW_RESIZABLE) {
-			resizableFlag = SDL_WINDOW_RESIZABLE;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_HIDDEN) {
-			shownFlag = SDL_WINDOW_HIDDEN;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_BORDERLESS) {
-			borderlessFlag = SDL_WINDOW_BORDERLESS;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_MINIMIZED) {
-			minimizedFlag = SDL_WINDOW_MINIMIZED;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_OPENGL) {
-			openGLFlag = SDL_WINDOW_OPENGL;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_HIGH_DPI) {
-			highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
-		} else if (flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN || flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN_DESKTOP
-			|| flags[i] == WindowFlag::AELA_WINDOW_WINDOWED) {
-			setFullscreen(flags[i]);
-		}
-	}
+	Uint32 sdlFlags = generateWindowFlagsForSDL();
+	
 
 	// This creates and sets up the SDL window.
-	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, resizableFlag | shownFlag | borderlessFlag | minimizedFlag | openGLFlag | highDPIFlag);
+	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, sdlFlags);
 	
 	if (window == NULL) {
 		return false;
 	}
 
 	SDL_SetWindowSize(window, width, height);
-	SDL_SetWindowPosition(window, setXPosition, setYPosition);
+	SDL_SetWindowPosition(window, xPosition, yPosition);
+	return true;
+}
+
+bool Aela::Window::createWindowAtCenter(int width, int height, std::string name) {
+	// This sets general object properties.
+	setBasicProperties(width, height, name);
+	SDL_Init(SDL_INIT_EVERYTHING);
+	Uint32 sdlFlags = generateWindowFlagsForSDL();
+
+
+	// This creates and sets up the SDL window.
+	window = SDL_CreateWindow(windowName.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, sdlFlags);
+
+	if (window == NULL) {
+		return false;
+	}
+
+	SDL_SetWindowSize(window, width, height);
 	return true;
 }
 
@@ -182,6 +171,45 @@ void Window::showCursor() {
 
 void Window::hideCursor() {
 	SDL_ShowCursor(SDL_DISABLE);
+}
+
+Uint32 Aela::Window::generateWindowFlagsForSDL() {
+	// The window's SDL flags. By default, this uses SDL_WINDOW_MOUSE_FOCUS as if it were NULL.
+	SDL_WindowFlags resizableFlag = SDL_WINDOW_MOUSE_FOCUS, shownFlag = SDL_WINDOW_SHOWN,
+		borderlessFlag = SDL_WINDOW_MOUSE_FOCUS, minimizedFlag = SDL_WINDOW_MOUSE_FOCUS,
+		openGLFlag = SDL_WINDOW_MOUSE_FOCUS, highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
+
+	// This starts looking at the flags inputted as parameters.
+	for (unsigned int i = 0; i < flags.size(); i++) {
+		if (flags[i] == WindowFlag::AELA_WINDOW_RESIZABLE) {
+			resizableFlag = SDL_WINDOW_RESIZABLE;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_HIDDEN) {
+			shownFlag = SDL_WINDOW_HIDDEN;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_BORDERLESS) {
+			borderlessFlag = SDL_WINDOW_BORDERLESS;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_MINIMIZED) {
+			minimizedFlag = SDL_WINDOW_MINIMIZED;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_OPENGL) {
+			openGLFlag = SDL_WINDOW_OPENGL;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_HIGH_DPI) {
+			highDPIFlag = SDL_WINDOW_ALLOW_HIGHDPI;
+		} else if (flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN || flags[i] == WindowFlag::AELA_WINDOW_FULLSCREEN_DESKTOP
+			|| flags[i] == WindowFlag::AELA_WINDOW_WINDOWED) {
+			setFullscreen(flags[i]);
+		}
+	}
+
+	Uint32 flags = resizableFlag | shownFlag | borderlessFlag | minimizedFlag | openGLFlag | highDPIFlag;
+	return flags;
+}
+
+void Aela::Window::setBasicProperties(int width, int height, std::string name) {
+	windowName = name.c_str();
+	this->width = width;
+	this->height = height;
+	hasFocus = true;
+	maximized = true;
+	dimensions = Rect<unsigned int>(0, 0, width, height);
 }
 
 bool Window::isFocused() {

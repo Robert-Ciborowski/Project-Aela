@@ -39,8 +39,18 @@
 }*/
 
 static bool makeDirectory(const std::string& directory) {
-    #if defined (_MSC_VER) || defined __MINGW32__
+#if defined (_MSC_VER) || defined __MINGW32__
     return CreateDirectory(directory.c_str(), NULL);
+#endif
+
+#ifdef __APPLE__
+    return mkdir(directory.c_str(), S_IRWXU | S_IWUSR | S_IXUSR);
+#endif
+}
+
+static bool makeDirectory(const std::wstring& directory) {
+    #if defined (_MSC_VER) || defined __MINGW32__
+    return CreateDirectoryW(directory.c_str(), NULL);
     #endif
     
     #ifdef __APPLE__

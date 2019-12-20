@@ -32,7 +32,8 @@ namespace Aela {
 
 			// These are the behaviours.
 			void addProperty(WindowFlag flag);
-			bool createWindow(int setWidth, int setHeight, int setXPosition, int setYPosition, std::string setName);
+			bool createWindow(int width, int height, int xPosition, int yPosition, std::string name);
+			bool createWindowAtCenter(int width, int height, std::string name);
 			void getDimensions(int* widthVariable, int* heightVariable);
 			int getWidth();
 			int getHeight();
@@ -77,5 +78,8 @@ namespace Aela {
 		SDL_GLContext openGLContext;
 
 		Rect<unsigned int> dimensions;
+
+		Uint32 generateWindowFlagsForSDL();
+		void setBasicProperties(int width, int height, std::string name);
 	};
 }

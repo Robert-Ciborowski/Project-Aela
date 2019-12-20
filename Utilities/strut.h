@@ -14,6 +14,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 #include <sstream>
+#include <codecvt>
+#include <locale>
 
 // trim from start (in place)
 static inline void ltrim(std::string& s) {
@@ -41,6 +43,10 @@ static inline std::string toStringWithDecimal(float value, int places) {
 	return s;
 }
 
+static inline std::wstring stringToWStringUTF8(std::string str) {
+	return std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(str);
+}
+
 static std::string toStringWithATrailingZero(float value) {
 	std::string s = std::to_string(value);
 	bool trailing = false;
@@ -60,6 +66,11 @@ static std::string toStringWithATrailingZero(float value) {
 }
 
 static inline bool startsWith(std::string& haystack, std::string& needle) {
+	return needle.length() <= haystack.length()
+		&& equal(needle.begin(), needle.end(), haystack.begin());
+}
+
+static inline bool startsWith(std::wstring& haystack, std::wstring& needle) {
 	return needle.length() <= haystack.length()
 		&& equal(needle.begin(), needle.end(), haystack.begin());
 }

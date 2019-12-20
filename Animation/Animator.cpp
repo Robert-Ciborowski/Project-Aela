@@ -279,11 +279,13 @@ void Animator::update() {
 				long long timeSinceKeyFrameStart = track.getPositionInTrack() + 1;
 
 				if (keyFrame.isUsingTint()) {
-					object->setTint(keyFrame.getTintAtTime(timeSinceKeyFrameStart, endTime));
+					auto tint = keyFrame.getTintAtTime(timeSinceKeyFrameStart, endTime);
+					object->setTint(&tint);
 				}
 
 				if (keyFrame.isUsingDimensions()) {
-					object->setDimensions(keyFrame.getDimensionsAtTime(timeSinceKeyFrameStart, endTime));
+					auto dimensions = keyFrame.getDimensionsAtTime(timeSinceKeyFrameStart, endTime);
+					object->setDimensions(&dimensions);
 				}
 			}
 		}

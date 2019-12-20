@@ -59,7 +59,7 @@ boost::python::api::object& Aela::PythonExecuter::runPython(std::string pythonCo
 
 boost::python::api::object& Aela::PythonExecuter::runPythonFromFile(std::string src) {
 	if (!hasBeenInitialised) {
-		AelaErrorHandling::consoleWindowError("Python Executer", "You cannot run Python code before calling"
+		AelaErrorHandling::consoleWindowError("Python Executer", "You cannot run Python code before calling "
 			"startAllowingPythonExecution");
 		return boost::python::api::object();
 	}

@@ -47,6 +47,7 @@ namespace Aela {
 			~Engine();
 
 			int setupWindow(unsigned int width, unsigned int height, unsigned int windowXPosition, unsigned int windowYPosition, std::string name);
+			int setupWindowAtCenter(unsigned int width, unsigned int height, std::string name);
 			int setupRenderer();
 			int setupControlManager();
 			int setupLUA();
@@ -121,5 +122,7 @@ namespace Aela {
 
 			// A delay to use when the window has been minimized.
 			const Uint32 MINIMIZED_DELAY = 100;
+
+			void setupWindowProperties();
 	};
 }

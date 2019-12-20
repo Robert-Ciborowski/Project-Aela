@@ -51,16 +51,16 @@ void KeyFrame2D::end() {
 	}
 }
 
-ColourRGBA* KeyFrame2D::getTintAtTime(long long currentTime, long long endTime) {
+ColourRGBA& KeyFrame2D::getTintAtTime(long long currentTime, long long endTime) {
 	float timeRatio = (float) currentTime / endTime;
 	ColourRGBA newTint((float) (tint.getR() - originalTint.getR()) * timeRatio + originalTint.getR(),
 		(float) (tint.getG() - originalTint.getG()) * timeRatio + originalTint.getG(),
 		(float) (tint.getB() - originalTint.getB()) * timeRatio + originalTint.getB(),
 		(float) (tint.getA() - originalTint.getA()) * timeRatio + originalTint.getA());
-	return &newTint;
+	return newTint;
 }
 
-Rect<int>* KeyFrame2D::getDimensionsAtTime(long long currentTime, long long endTime) {
+Rect<int>& KeyFrame2D::getDimensionsAtTime(long long currentTime, long long endTime) {
 	float timeRatio = (float) currentTime / endTime;
 	int width = (int) ((dimensions.getWidth() - originalDimensions.getWidth()) * timeRatio + originalDimensions.getWidth());
 	int height = (int) ((dimensions.getHeight() - originalDimensions.getHeight()) * timeRatio + originalDimensions.getHeight());
@@ -76,12 +76,12 @@ Rect<int>* KeyFrame2D::getDimensionsAtTime(long long currentTime, long long endT
 	}
 
     Rect<int> returnValue(x, y, width, height);
-	return &returnValue;
+	return returnValue;
 }
 
-Rect<int>* KeyFrame2D::getDimensionsAtTime2(long long currentTime, long long endTime) {
+Rect<int>& KeyFrame2D::getDimensionsAtTime2(long long currentTime, long long endTime) {
 	if (currentTime >= endTime) {
-		return &dimensions;
+		return dimensions;
 	}
 
 	float timeRatio = (float) currentTime / endTime;
@@ -99,7 +99,7 @@ Rect<int>* KeyFrame2D::getDimensionsAtTime2(long long currentTime, long long end
 	}
 
     Rect<int> returnValue(x, y, width, height);
-    return &returnValue;
+    return returnValue;
 }
 
 KeyFrameType KeyFrame2D::getType() {

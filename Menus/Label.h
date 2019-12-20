@@ -20,7 +20,7 @@ namespace Aela {
 
 			// These are getters and setters.
 			void setText(std::string text);
-			std::string getText();
+			std::string& getText();
 			void setFont(Font* font);
 			Font* getFont();
 			void setSize(unsigned int size);

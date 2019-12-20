@@ -99,7 +99,7 @@ void Label::setText(std::string text) {
 	needToRecreateBuffer = true;
 }
 
-std::string Label::getText() {
+std::string& Label::getText() {
 	return text;
 }
 
