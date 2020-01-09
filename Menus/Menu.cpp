@@ -12,7 +12,7 @@ Menu::~Menu() {
 void Menu::init(Rect<int>* renderDimensions, GLRenderer& renderer) {
 	if (!initialized) {
 		renderer.setupSimple2DFramebuffer(&buffer, renderDimensions, renderDimensions);
-		dimensions = Rect<int>(renderDimensions->getX(), renderDimensions->getY(), renderDimensions->getWidth(), renderDimensions->getHeight());
+		dimensions = *renderDimensions;
 		initialized = true;
 	}
 }

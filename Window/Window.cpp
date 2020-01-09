@@ -98,6 +98,7 @@ bool Window::makeWindowOpenGLContext() {
 		AelaErrorHandling::windowError("Window", "Could not create an Open GL context! Your computer might be too old to support OpenGL 4.");
 		return false;
 	}
+	
 	return true;
 }
 
@@ -171,6 +172,10 @@ void Window::showCursor() {
 
 void Window::hideCursor() {
 	SDL_ShowCursor(SDL_DISABLE);
+}
+
+void Window::gainFocus() {
+	SDL_RaiseWindow(window);
 }
 
 Uint32 Aela::Window::generateWindowFlagsForSDL() {

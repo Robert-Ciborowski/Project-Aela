@@ -70,15 +70,10 @@ bool Aela::OGGClipLoader::load(ResourceMap& resources, std::string src) {
 	fclose(input);
 	char* actualData = (char*) malloc(data.size());
 	memcpy_s(actualData, data.size(), data.data(), data.size());
-
 	AudioClip* clip = new AudioClip(src, actualData);
 	clip->setSize((ALsizei) data.size());
 	clip->setFormat(channels, BITS_PER_SAMPLE);
 	clip->setSampleRate(rate);
-
-	/*std::cout << "Audio Data at Index 0: " << data[0] << std::endl;
-	std::cout << "Audio Bits per Sample * Sample Rate: " << bitsPerSample * sampleRate << std::endl;*/
-
 	resources.put(src, clip);
 	return true;
 }

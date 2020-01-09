@@ -11,6 +11,11 @@
 namespace Aela {
 	class Label : public Component {
 		public:
+			Label(std::wstring text, Font* font, unsigned int size);
+			Label(std::wstring text, Font* font, unsigned int size, ColourRGBA* colour);
+			Label(std::wstring text, Font* font, unsigned int size, PositioningMode2D positioningMode);
+			Label(std::wstring text, Font* font, unsigned int size, ColourRGBA* colour, PositioningMode2D positioningMode);
+		
 			Label(std::string text, Font* font, unsigned int size);
 			Label(std::string text, Font* font, unsigned int size, ColourRGBA* colour);
 			Label(std::string text, Font* font, unsigned int size, PositioningMode2D positioningMode);
@@ -19,8 +24,10 @@ namespace Aela {
 			virtual ~Label();
 
 			// These are getters and setters.
+			void setText(std::wstring text);
 			void setText(std::string text);
-			std::string& getText();
+			std::wstring& getText();
+			std::string& getTextAsString();
 			void setFont(Font* font);
 			Font* getFont();
 			void setSize(unsigned int size);
@@ -29,6 +36,7 @@ namespace Aela {
 			ColourRGBA* getColour();
 			virtual void renderWithDifferentTint(GLRenderer& renderer, ColourRGBA* tint);
 			void useFontSize();
+		
 			void setBuffer(std::vector<unsigned char>* buffer);
 			std::vector<unsigned char>* getBuffer();
 			void setBufferWidth(unsigned int bufferWidth);
@@ -41,7 +49,8 @@ namespace Aela {
 			Rect<float>* getCharacterPositioning();
 
 		protected:
-			std::string text;
+			std::wstring text;
+			std::string textAsAscii;
 			Font* font;
 			unsigned int size;
 			ColourRGBA colour;

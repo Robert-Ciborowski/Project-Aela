@@ -41,7 +41,7 @@ int Aela::PythonExecuter::startAllowingImports(Engine& engine) {
 	return 0;
 }
 
-boost::python::api::object& Aela::PythonExecuter::runPython(std::string pythonCode) {
+boost::python::api::object Aela::PythonExecuter::runPython(std::string pythonCode) {
 	if (!hasBeenInitialised) {
 		AelaErrorHandling::consoleWindowError("Python Executer", "You cannot run Python code before calling"
 			"startAllowingPythonExecution");
@@ -57,7 +57,7 @@ boost::python::api::object& Aela::PythonExecuter::runPython(std::string pythonCo
 	}
 }
 
-boost::python::api::object& Aela::PythonExecuter::runPythonFromFile(std::string src) {
+boost::python::api::object Aela::PythonExecuter::runPythonFromFile(std::string src) {
 	if (!hasBeenInitialised) {
 		AelaErrorHandling::consoleWindowError("Python Executer", "You cannot run Python code before calling "
 			"startAllowingPythonExecution");

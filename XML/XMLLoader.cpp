@@ -43,6 +43,7 @@ bool Aela::XMLLoader::loadFromFile(std::wstring& src) {
 		processNode(node, nullptr);
 	} catch (std::runtime_error e) {
 		AelaErrorHandling::consoleWindowError("XML Loader", "Could not open uncompressed xml file!");
+		std::wcout << src << "\n";
 		return false;
 	}
 

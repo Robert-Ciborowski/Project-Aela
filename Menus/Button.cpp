@@ -113,8 +113,17 @@ void Aela::Button::setText(std::string text) {
 	setupLabelDimensions();
 }
 
-std::string Aela::Button::getText() {
+void Aela::Button::setText(std::wstring text) {
+	textLabel.setText(text);
+	setupLabelDimensions();
+}
+
+std::wstring Aela::Button::getText() {
 	return textLabel.getText();
+}
+
+std::string Aela::Button::getTextAsString() {
+	return textLabel.getTextAsString();
 }
 
 void Aela::Button::setHoverTint(ColourRGBA* hoverTint) {

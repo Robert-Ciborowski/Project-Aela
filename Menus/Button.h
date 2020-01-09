@@ -25,8 +25,10 @@ namespace Aela {
 
 			// These are getters and setters.
 			void setupOnClick(std::function<void()> function);
+			void setText(std::wstring text);
 			void setText(std::string text);
-			std::string getText();
+			std::wstring getText();
+			std::string getTextAsString();
 			void setHoverTint(ColourRGBA* hoverTint);
 			void setClickTint(ColourRGBA* clickTint);
 			void setFont(Font* font);

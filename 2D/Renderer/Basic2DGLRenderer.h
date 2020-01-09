@@ -52,6 +52,8 @@ namespace Aela {
 				PositioningMode2D positioningMode, unsigned int customShader);
 			void renderTextToSimple2DFramebuffer(std::string text, Font* font, unsigned int size, Simple2DFramebuffer* framebuffer, Rect<int>* output,
 				ColourRGBA* colour, PositioningMode2D positioningMode, unsigned int pointsPerPixel);
+			void renderTextToSimple2DFramebuffer(std::wstring& text, Font* font, unsigned int size, Simple2DFramebuffer* framebuffer, Rect<int>* output,
+				ColourRGBA* colour, PositioningMode2D positioningMode, unsigned int pointsPerPixel);
 			void renderLabelToSimple2DFramebuffer(Label* label, Simple2DFramebuffer* framebuffer, PositioningMode2D positioningMode,
 				unsigned int pointsPerPixel);
 			void renderMultisampledBufferToBuffer(unsigned int multisampledBuffer, unsigned int secondaryBuffer, Rect<int>* bufferDimensions);
@@ -101,7 +103,7 @@ namespace Aela {
 			struct RenderableGlyph {
 				unsigned char* buffer;
 				int width, rows, originY;
-				char character;
+				wchar_t character;
 			};
 	};
 }

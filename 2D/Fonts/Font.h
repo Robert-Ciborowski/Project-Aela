@@ -27,6 +27,8 @@ namespace Aela {
 			void setDefaultSize(unsigned int defaultSize);
 			unsigned int getDefaultSize();
 			void prepareForRendering(unsigned int superSamplingFactor, unsigned int size);
+			Rect<int> getDimensionsOfText(std::wstring text);
+			Rect<int> getDimensionsOfText(std::wstring text, unsigned int size);
 			Rect<int> getDimensionsOfText(std::string text);
 			Rect<int> getDimensionsOfText(std::string text, unsigned int size);
 			void setAntialiasing(bool antialiasing);

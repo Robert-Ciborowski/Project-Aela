@@ -232,9 +232,10 @@ void Engine::update() {
 }
 
 void Engine::render() {
-	stopwatch.startRecording("Scene Manager Rendering");
+	sceneManager.getCurrentScene()->stopwatch = &stopwatch;
+	// stopwatch.startRecording("Scene Manager Rendering");
 	sceneManager.render(*renderer);
-	stopwatch.stopRecording("Scene Manager Rendering");
+	// stopwatch.stopRecording("Scene Manager Rendering");
 }
 
 bool Engine::shouldExit() {

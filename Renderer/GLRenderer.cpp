@@ -47,7 +47,6 @@ void GLRenderer::setup3DRendering() {
 
 // This sets up 2D rendering, accounting for multisampling.
 void GLRenderer::setup2DRendering() {
-	std::cout << mainFramebuffer << " is mainframebuffer\n";
 	if (mainFramebuffer == 0) {
 		setupMainFrameBuffer();
 	}
@@ -236,6 +235,10 @@ void GLRenderer::renderText(std::string text, Font* font, unsigned int size, Rec
     basic2DRenderer.renderTextToSimple2DFramebuffer(text, font, size, bound2DFramebuffer, output, colour, positioningMode, POINTS_PER_PIXEL);
 }
 
+void Aela::GLRenderer::renderText(std::wstring text, Font* font, unsigned int size, Rect<int>* output, ColourRGBA* colour, PositioningMode2D positioningMode) {
+	 basic2DRenderer.renderTextToSimple2DFramebuffer(text, font, size, bound2DFramebuffer, output, colour, positioningMode, POINTS_PER_PIXEL);
+}
+
 void Aela::GLRenderer::renderLabel(Label* label, PositioningMode2D positioningMode) {
 	basic2DRenderer.renderLabelToSimple2DFramebuffer(label, bound2DFramebuffer, positioningMode, POINTS_PER_PIXEL);
 }
@@ -276,24 +279,23 @@ void GLRenderer::endRendering3D() {
         basic2DRenderer.renderMultisampledBufferToBuffer(*basic3DRenderer.getMultisampledColourFrameBuffer(), *basic3DRenderer.getColourFrameBuffer(), (Rect<int>*) window->getDimensions());
     }
 
-
     basic2DRenderer.renderImageToFramebuffer(basic3DRenderer.getColourFrameBufferTexture(), mainFramebuffer, (Rect<int>*) window->getDimensions(), (Rect<int>*) window->getDimensions(), (Rect<int>*) window->getDimensions(), &tint3D, PositioningMode2D::TOP_LEFT, effects3DShader);
 }
 
 void GLRenderer::endRenderingFrame() {
-    // glBindFramebuffer(GL_FRAMEBUFFER, 1);
-    // glClearColor(0, 0.5, 0, 1);
-    // glClear(GL_COLOR_BUFFER_BIT);
-
-	// outputToWindow = Rect<int>(0, 0, 1024, 768);
-	// std::cout << "Out to win: " << outputToWindow << "\n";
-
-    Rect<int>* dimensions = (Rect<int>*) window->getDimensions();
-    basic2DRenderer.renderImageToFramebuffer(&mainFramebufferImage, 0, &outputToWindow, dimensions, dimensions, nullptr, PositioningMode2D::TOP_LEFT);
-    
-	// basic2DRenderer.renderImageToFramebuffer(&mainFramebufferImage, 0, (Rect<int>*) window->getDimensions(), (Rect<int>*) window->getDimensions(), window->getDimensions(), nullptr, PositioningMode2D::TOP_LEFT);
-    
-	window->updateBuffer();
+	if (stopwatch != nullptr) {
+		Rect<int>* dimensions = (Rect<int>*) window->getDimensions();
+		stopwatch->startRecording("Scene Manager renderImageToFramebuffer");
+	    basic2DRenderer.renderImageToFramebuffer(&mainFramebufferImage, 0, &outputToWindow, dimensions, dimensions, nullptr, PositioningMode2D::TOP_LEFT);    
+		stopwatch->stopRecording("Scene Manager renderImageToFramebuffer");
+		stopwatch->startRecording("Scene Manager updateBuffer");
+		window->updateBuffer();
+		stopwatch->stopRecording("Scene Manager updateBuffer");
+	} else {
+	    Rect<int>* dimensions = (Rect<int>*) window->getDimensions();
+	    basic2DRenderer.renderImageToFramebuffer(&mainFramebufferImage, 0, &outputToWindow, dimensions, dimensions, nullptr, PositioningMode2D::TOP_LEFT);    
+		window->updateBuffer();
+	}
 }
 
 void GLRenderer::generateShadowMap(LightEntity* light) {

@@ -35,6 +35,7 @@
 #include "../2D/Texture/GLImage.h"
 #include "../Events/EventListener.h"
 #include "../Events/KeyEvent.h"
+#include "../Time/Stopwatch/Stopwatch.h"
 
 // These are some enums used by the GLRenderer.
 namespace Aela {
@@ -97,7 +98,8 @@ namespace Aela {
 
 			// These functions are related to 2D rendering.
 			void render2DImage(Image* image, Rect<int>* output, Rect<int>* cropping, ColourRGBA* tint, PositioningMode2D PositioningMode);
-			void renderText(std::string text, Font* font, unsigned int size, Rect<int>* output, ColourRGBA* colour, PositioningMode2D PositioningMode);
+			void renderText(std::string text, Font* font, unsigned int size, Rect<int>* output, ColourRGBA* colour, PositioningMode2D positioningMode);
+			void renderText(std::wstring text, Font* font, unsigned int size, Rect<int>* output, ColourRGBA* colour, PositioningMode2D positioningMode);
 			void renderLabel(Label* label, PositioningMode2D positioningMode);
 			void renderRectangle(Rect<int>* output, ColourRGBA* colour, PositioningMode2D PositioningMode);
 			void renderRectangle(unsigned int xPosition, unsigned int yPosition, int width, int height, ColourRGBA* colour, PositioningMode2D PositioningMode);
@@ -123,6 +125,9 @@ namespace Aela {
 			Window* getWindow();
 			Clock* getClock();
 			Camera3D* getCamera();
+
+			// DELETE THIS!
+			Stopwatch* stopwatch = nullptr;
 
 		private:
 			// These are a bunch of Project Aela objects that the renderer uses.

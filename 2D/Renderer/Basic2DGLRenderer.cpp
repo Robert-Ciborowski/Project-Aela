@@ -82,7 +82,7 @@ void Aela::Basic2DGLRenderer::setupSimple2DFramebuffer(Simple2DFramebuffer* fram
 
 	glGenTextures(1, multisampledTexture);
 	glBindTexture(GL_TEXTURE_2D_MULTISAMPLE, *multisampledTexture);
-	glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, multisampling, GL_RGBA, windowWidth, windowHeight, GL_TRUE);
+	glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, multisampling, GL_RGBA, dimensions->getWidth(), dimensions->getHeight(), GL_TRUE);
 	/* Clamping to edges is important to prevent artifacts when scaling */
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -90,7 +90,7 @@ void Aela::Basic2DGLRenderer::setupSimple2DFramebuffer(Simple2DFramebuffer* fram
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
-	framebuffer->getMultisampledFramebufferImage()->setDimensions(0, 0, windowWidth, windowHeight);
+	framebuffer->getMultisampledFramebufferImage()->setDimensions(0, 0, dimensions->getWidth(), dimensions->getHeight());
 	glDrawBuffer(GL_COLOR_ATTACHMENT0);
 	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, *multisampledTexture, 0);
 
@@ -98,7 +98,7 @@ void Aela::Basic2DGLRenderer::setupSimple2DFramebuffer(Simple2DFramebuffer* fram
 	glBindFramebuffer(GL_FRAMEBUFFER, *framebuffer->getFramebuffer());
 	glGenTextures(1, texture);
 	glBindTexture(GL_TEXTURE_2D, *texture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, windowWidth, windowHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, dimensions->getWidth(), dimensions->getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -268,8 +268,12 @@ void Aela::Basic2DGLRenderer::renderImageToFramebuffer(Image* image, unsigned in
 	glDeleteBuffers(1, &UVBuffer);
 }
 
+void Aela::Basic2DGLRenderer::renderTextToSimple2DFramebuffer(std::string text, Font* font, unsigned int size, Simple2DFramebuffer* framebuffer, Rect<int>* output, ColourRGBA* colour, PositioningMode2D positioningMode, unsigned int pointsPerPixel) {
+	renderTextToSimple2DFramebuffer(stringToWStringUTF8(text), font, size, framebuffer, output, colour, positioningMode, pointsPerPixel);
+}
+
 // This function renders text directly to the 2D renderer's buffer.
-void Aela::Basic2DGLRenderer::renderTextToSimple2DFramebuffer(std::string text, Font* font, unsigned int size, Simple2DFramebuffer* framebuffer, Rect<int>* output,
+void Aela::Basic2DGLRenderer::renderTextToSimple2DFramebuffer(std::wstring& text, Font* font, unsigned int size, Simple2DFramebuffer* framebuffer, Rect<int>* output,
 	ColourRGBA* colour, PositioningMode2D positioningMode, unsigned int pointsPerPixel) {
 	// Some of the terms used in this function may be confusing. See https://www.freetype.org/freetype2/docs/tutorial/step2.html to look up the terms.
 	// This function creates a buffer that represents the texture of the text. It does this by combining the buffers of the individual glyphs.
@@ -299,7 +303,7 @@ void Aela::Basic2DGLRenderer::renderTextToSimple2DFramebuffer(std::string text, 
 	FT_Face face = font->getFace();
 
 	// This goes through every glyph to perform actions upon every glyph's properties.
-	for (char i : text) {
+	for (wchar_t i : text) {
 		FT_Error error;
 
 		if (font->isAntialiased()) {
@@ -357,7 +361,6 @@ void Aela::Basic2DGLRenderer::renderTextToSimple2DFramebuffer(std::string text, 
 					}
 				}*/
 			}
-			
 
 			charBuffer.buffer = data;
 			charBuffer.width = glyph->bitmap.width;
@@ -433,7 +436,7 @@ void Aela::Basic2DGLRenderer::renderLabelToSimple2DFramebuffer(Label* label, Sim
 		Font* font = label->getFont();
 		unsigned int size = label->getSize();
 		Rect<int>* output = label->getDimensions();
-		std::string text = label->getText();
+		std::wstring text = label->getText();
 		font->prepareForRendering(textScaling, size);
 
 		// This creates a bounding box for the text.
@@ -457,7 +460,7 @@ void Aela::Basic2DGLRenderer::renderLabelToSimple2DFramebuffer(Label* label, Sim
 		FT_Face face = font->getFace();
 
 		// This goes through every glyph to perform actions upon every glyph's properties.
-		for (char i : text) {
+		for (wchar_t i : text) {
 			FT_Error error;
 
 			if (font->isAntialiased()) {

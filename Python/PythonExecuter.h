@@ -17,8 +17,8 @@ namespace Aela {
 			~PythonExecuter();
 
 			int startAllowingImports(Engine& engine);
-			boost::python::api::object& runPython(std::string pythonCode);
-			boost::python::api::object& runPythonFromFile(std::string src);
+			boost::python::api::object runPython(std::string pythonCode);
+			boost::python::api::object runPythonFromFile(std::string src);
 			void startAllowingPythonExecution();
 
 		private:

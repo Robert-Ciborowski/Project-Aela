@@ -49,11 +49,11 @@ void Aela::Font::prepareForRendering(unsigned int superSamplingFactor, unsigned 
 	}
 }
 
-Rect<int> Aela::Font::getDimensionsOfText(std::string text) {
+Rect<int> Aela::Font::getDimensionsOfText(std::wstring text) {
 	return getDimensionsOfText(text, defaultSize);
 }
 
-Rect<int> Font::getDimensionsOfText(std::string text, unsigned size) {
+Rect<int> Aela::Font::getDimensionsOfText(std::wstring text, unsigned int size) {
 	// If the font just came back from rendering, it should recall FT_Set_Pixel_Size.
 	if (superSamplingFactor != 1 || this->renderingSize != size || fixSizeNextRender) {
 		if (FT_Set_Pixel_Sizes(face, 0, size) != 0) {
@@ -84,8 +84,8 @@ Rect<int> Font::getDimensionsOfText(std::string text, unsigned size) {
 				continue;
 			}
 		} catch (char* e) {
-			std::cout << text << " " << face->family_name << face << " " << (char) (text.at(i)) << " " << AelaErrorHandling::getFreeTypeErrorMessage(error) << "\n";
-			std::cout << e << " is an FT_Load_Char exception\n";
+			std::wcout << text << " " << face->family_name << face << " " << (wchar_t) (text.at(i)) << " " << AelaErrorHandling::getFreeTypeErrorMessage(error) << "\n";
+			std::wcout << e << " is an FT_Load_Char exception\n";
 			continue;
 		}
 
@@ -102,6 +102,14 @@ Rect<int> Font::getDimensionsOfText(std::string text, unsigned size) {
 	int height = (bbox.yMax - bbox.yMin) / POINTS_PER_PIXEL;
 	dimensions.setHeight(height);
 	return dimensions;
+}
+
+Rect<int> Aela::Font::getDimensionsOfText(std::string text) {
+	return getDimensionsOfText(text, defaultSize);
+}
+
+Rect<int> Font::getDimensionsOfText(std::string text, unsigned int size) {
+	return getDimensionsOfText(stringToWStringUTF8(text), size);
 }
 
 void Font::setAntialiasing(bool antialiasing) {

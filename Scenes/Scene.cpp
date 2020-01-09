@@ -49,7 +49,10 @@ void Scene::update() {
 }
 
 void Scene::render(GLRenderer& renderer) {
+	stopwatch->startRecording("Scene Manager renderer.startRecording");
 	renderer.startRenderingFrame();
+	stopwatch->stopRecording("Scene Manager renderer.startRecording");
+	
 	if (map != nullptr) {
 		renderer.bindLights(map->getLights());
 		renderer.startRendering3D();
@@ -63,9 +66,12 @@ void Scene::render(GLRenderer& renderer) {
 	}
 
 	if (menu.isInitialized()) {
+		stopwatch->startRecording("Scene Manager menu.render");
 		menu.render(renderer);
+		stopwatch->stopRecording("Scene Manager menu.render");
 	}
 
+	renderer.stopwatch = stopwatch;
 	renderer.endRenderingFrame();
 }
 

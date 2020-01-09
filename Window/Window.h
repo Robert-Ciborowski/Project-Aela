@@ -60,6 +60,7 @@ namespace Aela {
 
 			void showCursor();
 			static void hideCursor();
+			void gainFocus();
 
 	private:
 		// These are typical window properties.

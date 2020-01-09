@@ -27,9 +27,6 @@ namespace Aela {
 			}
 
 			ColourRGBA operator*(const ColourRGBA& other) {
-				std::cout << "operator*: " << std::min(1.0f, r * other.r) << " " << std::min(1.0f, g * other.g)
-					<< " " << std::min(1.0f, b * other.b) << " from " << r << " * " << other.r << ", "
-					<< g << " * " << other.g << ", " << b << " * " << other.b << "\n";
 				return ColourRGBA(std::min(1.0f, r * other.r), std::min(1.0f, g * other.g),
 					std::min(1.0f, b * other.b), std::min(1.0f, a * other.a));
 			}

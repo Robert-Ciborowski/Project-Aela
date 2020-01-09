@@ -10,6 +10,7 @@
 #include "../3D/Maps/Map3D.h"
 #include "../Renderer/GLRenderer.h"
 #include "../Menus/Menu.h"
+#include "../Time/Stopwatch/Stopwatch.h"
 
 namespace Aela {
 	class Scene {
@@ -37,6 +38,9 @@ namespace Aela {
 
 			void putParticleEmitter(ParticleEmitter* emitter);
 			void clearParticleEmitters();
+
+			// REMOVE THIS!!
+			Stopwatch* stopwatch;
 		private:
 			Map3D* map = nullptr;
 			std::vector<ParticleEmitter*> particleEmitters;

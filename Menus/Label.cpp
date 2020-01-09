@@ -2,8 +2,27 @@
 
 using namespace Aela;
 
-Label::Label(std::string text, Font* font, unsigned int size) : colour(1, 1, 1, 1) {
+Aela::Label::Label(std::wstring text, Font* font, unsigned int size) {
 	this->text = text;
+	this->font = font;
+	this->size = size;
+	setup();
+}
+
+Aela::Label::Label(std::wstring text, Font* font, unsigned int size, ColourRGBA* colour) : Label(text, font, size) {
+	this->colour = *colour;
+}
+
+Aela::Label::Label(std::wstring text, Font* font, unsigned int size, PositioningMode2D positioningMode) : Label(text, font, size) {
+	this->positioningMode = positioningMode;
+}
+
+Aela::Label::Label(std::wstring text, Font* font, unsigned int size, ColourRGBA* colour, PositioningMode2D positioningMode) : Label(text, font, size, colour) {
+	this->positioningMode = positioningMode;
+}
+
+Label::Label(std::string text, Font* font, unsigned int size) : colour(1, 1, 1, 1) {
+	this->text = stringToWStringUTF8(text);
 	this->font = font;
 	this->size = size;
 	setup();
@@ -17,11 +36,9 @@ Label::Label(std::string text, Font *font, unsigned int size, PositioningMode2D 
 	this->positioningMode = positioningMode;
 }
 
-
 Label::Label(std::string text, Font* font, unsigned int size, ColourRGBA* colour, PositioningMode2D positioningMode) : Label(text, font, size, colour) {
 	this->positioningMode = positioningMode;
 }
-
 
 Label::~Label() {
 }
@@ -92,15 +109,28 @@ Rect<float>* Aela::Label::getCharacterPositioning() {
 	return &characterPositioning;
 }
 
-void Label::setText(std::string text) {
-	this->text = std::move(text);
+void Aela::Label::setText(std::wstring text) {
+	this->textAsAscii = "";
+	this->text = text;
 	setup();
 	markDirty();
 	needToRecreateBuffer = true;
 }
 
-std::string& Label::getText() {
+void Label::setText(std::string text) {
+	this->textAsAscii = text;
+	this->text = stringToWStringUTF8(text);
+	setup();
+	markDirty();
+	needToRecreateBuffer = true;
+}
+
+std::wstring& Label::getText() {
 	return text;
+}
+
+std::string& Aela::Label::getTextAsString() {
+	return textAsAscii;
 }
 
 void Label::setFont(Font* font) {

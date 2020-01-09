@@ -1,6 +1,6 @@
 /*
- * Class: LAF
- * Author: Julian Dominguez-Schatz
+ * Class: LookAndFeel
+ * Author: Robert Ciborowski
  * Date: 16/08/2017
  * Description: A class which represents a look-and-feel for UI widgets. This provides
  * a set of default parameters to UI components so the user doesn't have to initialize them every time.
@@ -12,7 +12,7 @@
 #include <unordered_map>
 
 namespace Aela {
-	class LAF {
+	class LookAndFeel {
 		public:
 			void putAttribute(std::string key, std::string value);
 			std::string getAttribute(std::string key);
