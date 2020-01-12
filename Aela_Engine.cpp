@@ -226,9 +226,9 @@ void Engine::update() {
 		}
 	}
 
-	if (!window.isMaximized()) {
-		SDL_Delay(100);
-	}
+	// if (!window.isMaximized()) {
+	// 	SDL_Delay(100);
+	// }
 }
 
 void Engine::render() {
