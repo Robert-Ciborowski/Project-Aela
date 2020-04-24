@@ -1,5 +1,5 @@
 # Project-Aela
-A 2D/3D engine written in C++ with OpenGL and OpenAL. This engine is used by the video game Neo-Zero (https://www.neozerogame.com).
+A 2D/3D engine written in C++ and GLSL using OpenGL and OpenAL. This engine is used by the video game Neo-Zero (https://www.neozerogame.com).
 
 ## Features
 * 3D rendering of models, lights, skyboxes, materials, billboards and particles
