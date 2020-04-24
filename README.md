@@ -33,3 +33,33 @@ A 2D/3D engine written in C++ and GLSL using OpenGL and OpenAL. This engine is u
 * Freetype (2.9)
 * Zlib (1.2.11)
 * Libpng (1.6.35)
+
+## Neo-Zero Screenshots
+Here are some development screenshots of Neo-Zero, which is powered by Project Aela.
+
+A town in Neo-Zero.
+![https://neozerogame.com/img/screenshots/town.png](https://neozerogame.com/img/screenshots/town.png "A town.")
+
+The same town during a cool evening.
+![https://neozerogame.com/img/screenshots/demo_out_1.png](https://neozerogame.com/img/screenshots/demo_out_1.png "The same town during a cool evening.")
+
+Neo-Zero's battles, which can see a lot of smaller images displayed at the same time.
+![https://neozerogame.com/img/screenshots/demo_out_2.png](https://neozerogame.com/img/screenshots/demo_out_2.png "Neo-Zero's battles, which can see a lot of smaller images displayed at the same time.")
+
+## Historical Screenshots
+Here are some historical screenshots of Project Aela.
+
+The first model that was displayed with Project Aela.
+![https://neozerogame.com/img/screenshots/project-aela-first-model.png](https://neozerogame.com/img/screenshots/project-aela-first-model.png "The first model that was displayed with Project Aela.")
+
+The first shadows that were rendered in Project Aela.
+![https://neozerogame.com/img/screenshots/aela-dev-1.png](https://neozerogame.com/img/screenshots/aela-dev-1.png "The first shadows that were rendered in Project Aela.")
+
+4x anti-aliasing when it was first introduced.
+![https://neozerogame.com/img/screenshots/aela-dev-2.png](https://neozerogame.com/img/screenshots/aela-dev-2.png "4x anti-aliasing when it was first introduced.")
+
+The first partially-transparent texture to be rendered in Project Aela, which is now used for glass.
+![https://neozerogame.com/img/screenshots/aela-dev-3.png](https://neozerogame.com/img/screenshots/aela-dev-3.png "The first partially-transparent texture to be rendered in Project Aela, which is now used for glass.")
+
+Testing how many entities can be rendered by Project Aela.
+![https://neozerogame.com/img/screenshots/aela-dev-4.png](https://neozerogame.com/img/screenshots/aela-dev-4.png "Testing how many entities can be rendered by Project Aela.")
