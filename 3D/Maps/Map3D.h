@@ -64,7 +64,8 @@ namespace Aela {
 			void removeEverything();
 
 			void setAmbientLighting(float ambientLighting);
-			float getAmbientLighting();
+			void setAmbientLighting(glm::vec3 ambientLighting);
+			glm::vec3 getAmbientLighting();
 
 		private:
 			// These are the maps of entities in the world.
@@ -74,7 +75,7 @@ namespace Aela {
 			std::unordered_map<long long, BillboardEntity> billboards;
 			std::unordered_map<long long, SkyboxEntity> skyboxes;
 
-			float ambientLighting = 0.15f;
+			glm::vec3 ambientLighting = glm::vec3(1);
 
 			// This stores the model entities based on the model resource that is used. This allows for a beneficial
 			// optimization in the renderer. Note that models that contain transparency should be rendered LAST.

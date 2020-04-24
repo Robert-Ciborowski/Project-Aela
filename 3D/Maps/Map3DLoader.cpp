@@ -151,6 +151,15 @@ void Aela::Map3DLoader::processXMLNodeData(Aela::Map3DLoader::Node& node) {
 			float power = std::stof(value);
 			map->setAmbientLighting(power);
 		}
+
+		iter = node.attributes.find("colour");
+
+		if (iter != node.attributes.end()) {
+			std::string value = std::string(iter->second);
+			glm::vec3 vec3;
+			setVec3UsingString(&value, &vec3);
+			map->setAmbientLighting(vec3);
+		}
 	} else if (node.name == "Skybox") {
 		entityID = map->getSkyboxes()->size();
 		SkyboxEntity skyboxEntity;

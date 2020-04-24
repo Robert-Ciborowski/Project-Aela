@@ -44,6 +44,7 @@ void Basic3DGLRenderer::getIDs() {
 	rotationMatrixID = glGetUniformLocation(modelProgramID, "rotationMatrices");
 	shadowMapID = glGetUniformLocation(modelProgramID, "shadowMaps");
 	numberOfLightsID = glGetUniformLocation(modelProgramID, "numberOfLights");
+	// ambientLightingID = glGetUniformLocation(modelProgramID, "ambientLighting");
 	ambientLightingID = glGetUniformLocation(modelProgramID, "ambientLighting");
 
 	lightlessModelTextureID = glGetUniformLocation(lightlessModelProgramID, "textureSampler");

@@ -177,7 +177,8 @@ void Basic3DGLModelRenderer::renderInstancedModelEntities(Map3D* map, std::vecto
 		// This sends more uniforms to the shader.
 		glUniformMatrix4fv(modelMatrixID, (GLsizei) modelMatrices.size(), GL_FALSE, &modelMatrices[0][0][0]);
 		glUniformMatrix4fv(rotationMatrixID, (GLsizei) rotationMatrices.size(), GL_FALSE, &rotationMatrices[0][0][0]);
-		glUniform1f(ambientLightingID, map->getAmbientLighting());
+		glm::vec3 ambientLighting = map->getAmbientLighting();
+		glUniform3f(ambientLightingID, ambientLighting.x, ambientLighting.y, ambientLighting.z);
 
 		for (SubModel subModel : *model->getSubModels()) {
 			// This loads buffers.

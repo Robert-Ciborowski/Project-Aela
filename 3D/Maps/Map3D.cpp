@@ -171,13 +171,16 @@ void Map3D::removeEverything() {
 }
 
 void Aela::Map3D::setAmbientLighting(float ambientLighting) {
+	this->ambientLighting = glm::vec3(ambientLighting, ambientLighting, ambientLighting);
+}
+
+void Map3D::setAmbientLighting(glm::vec3 ambientLighting) {
 	this->ambientLighting = ambientLighting;
 }
 
-float Aela::Map3D::getAmbientLighting() {
+glm::vec3 Aela::Map3D::getAmbientLighting() {
 	return ambientLighting;
 }
-
 
 void Map3D::addSkybox(long long id, SkyboxEntity* skybox) {
 	skyboxes[id] = *skybox;

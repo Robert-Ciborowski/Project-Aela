@@ -172,6 +172,7 @@ static void setVec2UsingString(std::string* value, glm::ivec2* ivec2) {
 		*ivec2 = glm::ivec2(intValues[0], intValues[1]);
 	}
 }
+
 static void setVec3UsingString(std::string* value, glm::vec3* vec3) {
 	std::vector<std::string> values;
 
@@ -226,6 +227,63 @@ static void setVec3UsingString(std::string* value, glm::ivec3* ivec3) {
 		}
 
 		*ivec3 = glm::ivec3(intValues[0], intValues[1], intValues[2]);
+	}
+}
+
+static void setVec4UsingString(std::string* value, glm::vec4* vec4) {
+	std::vector<std::string> values;
+
+	for (unsigned int l = 0; l < value->size(); l++) {
+		if (value->at(l) == ',') {
+			values.push_back(value->substr(0, l));
+			value->erase(0, l + 1);
+			l = -1;
+		} else if (l == value->size() - 1) {
+			values.push_back(value->substr(0, l + 1));
+			break;
+		}
+	}
+
+	if (values.size() > 3) {
+		float floatValues[4];
+
+		for (unsigned int i = 0; i < 4; i++) {
+			if (values.at(i) == "PI") {
+				floatValues[i] = glm::pi<float>();
+			} else if (values.at(i) == "2PI") {
+				// Note: Setting a rotational value of a Transformabe3D to "2PI" should just set it to zero.
+				floatValues[i] = glm::pi<float>() * 2;
+			} else {
+				floatValues[i] = std::stof(values.at(i));
+			}
+		}
+
+		*vec4 = glm::vec4(floatValues[0], floatValues[1], floatValues[2], floatValues[3]);
+	}
+}
+
+static void setVec4UsingString(std::string* value, glm::ivec4* ivec4) {
+	std::vector<std::string> values;
+
+	for (unsigned int l = 0; l < value->size(); l++) {
+		if (value->at(l) == ',') {
+			values.push_back(value->substr(0, l));
+			value->erase(0, l + 1);
+			l = -1;
+		} else if (l == value->size() - 1) {
+			values.push_back(value->substr(0, l + 1));
+			break;
+		}
+	}
+
+	if (values.size() > 3) {
+		int intValues[4];
+
+		for (unsigned int i = 0; i < 4; i++) {
+			intValues[i] = std::stoi(values.at(i));
+		}
+
+		*ivec4 = glm::ivec4(intValues[0], intValues[1], intValues[2], intValues[4]);
 	}
 }
 // This returns a string that express the individual bits of an unsigned char.
